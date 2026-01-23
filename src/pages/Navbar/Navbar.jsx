@@ -61,7 +61,7 @@ const Navbar = () => {
                   </div>
 
                   {openmenu && (
-                    <div className=" absolute right-0 top-14 z-50 bg-white text-white p-3 rounded-md shadow-lg transition-all duration-300 flex flex-col  items-start">
+                    <div className=" absolute right-0 top-14 z-999 bg-white text-white p-3 rounded-md shadow-lg transition-all duration-300 flex flex-col  items-start">
                       <p className="text-[12px] mb-2 text-[#757d89]">{user?.displayName}</p>
                       <p className="text-[12px] mb-2 text-[#757d89]">{user?.email}</p>
                       <Link to='/dashboardlayout/dashoboard' className="text-black">Dashboard</Link>

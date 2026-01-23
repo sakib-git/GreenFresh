@@ -3,6 +3,7 @@ import { Outlet } from 'react-router';
 import Navbar from '../pages/Navbar/Navbar';
 import Footer from '../pages/Footer/Footer';
 import Navbar2 from '../Components/Navbar2';
+import { Toaster } from 'kitzo';
 
 const RootLayout = () => {
   
@@ -14,6 +15,7 @@ const RootLayout = () => {
        <Outlet></Outlet>
      </div>
       <Footer></Footer>
+      <Toaster richColors='#00a63e' position='top-right'></Toaster>
     </div>
   );
 };

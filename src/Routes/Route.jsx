@@ -18,6 +18,7 @@ import AuthPrivate from './AuthPrivate';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
 import ManageUser from '../pages/Admin/ManageUser';
 import Error from '../Components/Error';
+import ContactUser from '../pages/Admin/ContactUser';
 
 
 
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
       {
         path:'/dashboardlayout/manageusers',
         element: <ManageUser></ManageUser>
+      },
+      {
+        path:'/dashboardlayout/contactusers',
+        element: <ContactUser></ContactUser>
       }
     ]
   },

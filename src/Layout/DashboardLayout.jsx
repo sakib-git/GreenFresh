@@ -53,11 +53,17 @@ const DashboardLayout = () => {
             <>
               <Link to="/dashboardlayout/admindashobard">Dashboard</Link>
               <Link to="/dashboardlayout/manageusers">Manage Users</Link>
+              <Link to="/dashboardlayout/contactusers">Contact Users</Link>
+            </>
+          )}
+          {dbUser?.role === 'user' && (
+            <>
+            <Link to="/dashboardlayout/dashoboard">Dashboard</Link>
+          <Link to="/dashboardlayout/order">Order</Link>
             </>
           )}
 
-          <Link to="/dashboardlayout/dashoboard">Dashboard</Link>
-          <Link to="/dashboardlayout/order">Order</Link>
+        
         </div>
       </aside>
 

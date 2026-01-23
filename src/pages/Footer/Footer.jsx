@@ -94,7 +94,7 @@ const Footer = () => {
       <div className="border-t border-slate-800 mt-16 pt-8">
         <div className="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            © 2026 <span className="text-green-500 font-medium">FreshNess</span>. All Rights Reserved.
+            © 2026 <span className="text-green-500 font-medium">GreenFresh</span>. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4 grayscale opacity-70">
             {/* You can replace these with actual payment icons/images */}

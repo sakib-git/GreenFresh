@@ -5,7 +5,7 @@ import { NavLink } from 'react-router';
 
 const Navbar2 = () => {
   return (
-    <div className="bg-white shadow   max-lg:hidden">
+    <div className="bg-white shadow z-50   max-lg:hidden">
       <hr className=" border-gray-300" />
       <div className="mx-3">
         <div className="max-w-[1400px] mx-auto py-3">
