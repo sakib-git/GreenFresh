@@ -21,7 +21,7 @@ const Navbar2 = () => {
                   <MdOutlineKeyboardArrowDown size={20} />
                 </span>
 
-                <div className="absolute top-full mt-6  left-0 min-w-[200px] bg-white shadow border border-gray-100 rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300  p-2">
+                <div className="absolute top-full mt-6  left-0 min-w-[200px] bg-white shadow border border-gray-100 rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300  p-2 z-50">
                   <p className="px-4 py-2 hover:bg-gray-100 cursor-pointer">About</p>
                   <p className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Services</p>
                   <p className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Blog</p>

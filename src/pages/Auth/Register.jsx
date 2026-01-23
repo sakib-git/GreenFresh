@@ -6,6 +6,7 @@ import useAuth from '../../Hooks/useAuth';
 import Social from './Social';
 import uploadImageToImgbb from '../../helper/uploadImageToImgbb';
 import { updateProfile } from 'firebase/auth';
+import useAxiossecure from './../../Hooks/useAxiossecure';
 
 const Register = () => {
   const [showPassword, setShowpasswor] = useState(false);
@@ -17,6 +18,7 @@ const Register = () => {
   } = useForm();
   const { registerUser } = useAuth();
   const navigate = useNavigate();
+  const axiosSecure = useAxiossecure()
 
   const handleRegister = async (data) => {
     try {
@@ -33,7 +35,12 @@ const Register = () => {
         displayName: data.name,
         photoURL: imageUrl,
       });
-
+      const saveUser = {
+      displayName: data.name,
+      email: data.email,
+      photoURL: imageUrl,
+    };
+axiosSecure.post('/auth/createaccount', saveUser)
       navigate('/');
     } catch (error) {
       console.error(error);

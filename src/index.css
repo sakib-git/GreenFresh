@@ -24,6 +24,20 @@ body {
   }
 }
 
+.about{
+  animation: aboutfloat 3s ease-in-out infinite;
+}
+@keyframes aboutfloat {
+  50%{
+    transform: translateY(-7px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;

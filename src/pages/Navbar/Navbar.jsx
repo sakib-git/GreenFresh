@@ -64,7 +64,7 @@ const Navbar = () => {
                     <div className=" absolute right-0 top-14 z-50 bg-white text-white p-3 rounded-md shadow-lg transition-all duration-300 flex flex-col  items-start">
                       <p className="text-[12px] mb-2 text-[#757d89]">{user?.displayName}</p>
                       <p className="text-[12px] mb-2 text-[#757d89]">{user?.email}</p>
-                      <button className="text-black">Dashboard</button>
+                      <Link to='/dashboardlayout/dashoboard' className="text-black">Dashboard</Link>
                       <button onClick={hadleLogout} className="text-sm font-medium text-red-500 hover:underline">
                         Logout
                       </button>

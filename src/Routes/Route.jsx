@@ -10,6 +10,14 @@ import AllCategories from '../pages/Allcategories/AllCategories';
 import About from '../pages/About/About';
 import Service from '../pages/Service/Service';
 import Contact from '../pages/Contact/Contact';
+import Dashboard from '../pages/Dashboard/Dashboard';
+import DashboardLayout from '../Layout/DashboardLayout';
+import Order from '../pages/Dashboard/Order';
+import PrivateRoute from './PrivateRoute';
+import AuthPrivate from './AuthPrivate';
+import AdminDashboard from '../pages/Admin/AdminDashboard';
+import ManageUser from '../pages/Admin/ManageUser';
+import Error from '../Components/Error';
 
 
 
@@ -50,7 +58,9 @@ export const router = createBrowserRouter([
   },
   {
     path:'/',
-    element: <AuthLayout></AuthLayout>,
+    element: <AuthPrivate>
+      <AuthLayout></AuthLayout>
+    </AuthPrivate>,
     children: [
       {
         path:'/login',
@@ -61,5 +71,36 @@ export const router = createBrowserRouter([
      element: <Register></Register>
       }
     ]
+  },
+  {
+    path:'/dashboardlayout',
+    element:
+    <PrivateRoute>
+      <DashboardLayout></DashboardLayout>
+    </PrivateRoute>,
+    children: [
+    
+      {
+        path:'/dashboardlayout/dashoboard',
+        element: <Dashboard></Dashboard>
+      },
+      {
+        path:'/dashboardlayout/order',
+        element: <Order></Order>
+      },
+      //admin
+      {
+        path: '/dashboardlayout/admindashobard',
+        element: <AdminDashboard></AdminDashboard>
+      },
+      {
+        path:'/dashboardlayout/manageusers',
+        element: <ManageUser></ManageUser>
+      }
+    ]
+  },
+  {
+    path:'/*',
+    element: <Error></Error>
   }
 ]);
