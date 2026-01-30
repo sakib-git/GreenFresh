@@ -21,16 +21,11 @@ import ContactUser from './pages/admin/ContactUser';
 import AddProduct from './pages/admin/AddProduct';
 import ViewDetails from './components/ViewDetails';
 import Login from './pages/auth/Login';
-import AuthProvider from './context/AuthProvider';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <AuthProvider>
-        <RootLayout></RootLayout>
-      </AuthProvider>
-    ),
+    element: <RootLayout></RootLayout>,
     children: [
       {
         index: true,
@@ -69,11 +64,9 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <AuthProvider>
-        <AuthPrivate>
-          <AuthLayout />
-        </AuthPrivate>
-      </AuthProvider>
+      <AuthPrivate>
+        <AuthLayout />
+      </AuthPrivate>
     ),
     children: [
       {
@@ -89,11 +82,9 @@ const router = createBrowserRouter([
   {
     path: '/dashboardlayout',
     element: (
-      <AuthProvider>
-        <PrivateRoute>
-          <DashboardLayout />
-        </PrivateRoute>
-      </AuthProvider>
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
     ),
     children: [
       {
