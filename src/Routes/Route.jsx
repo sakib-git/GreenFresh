@@ -19,6 +19,8 @@ import AdminDashboard from '../pages/Admin/AdminDashboard';
 import ManageUser from '../pages/Admin/ManageUser';
 import Error from '../Components/Error';
 import ContactUser from '../pages/Admin/ContactUser';
+import AddProduct from '../pages/Admin/AddProduct';
+import ViewDetails from '../Components/ViewDetails';
 
 
 
@@ -40,7 +42,7 @@ export const router = createBrowserRouter([
         element: <Addtocart></Addtocart>
       },
       {
-        path:'/allcategories',
+        path:'/categories',
         element: <AllCategories></AllCategories>
       },
       {
@@ -54,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path:'/contact',
         element:<Contact></Contact>
+      },
+      {
+        path:'/details/:id',
+        element:<ViewDetails></ViewDetails>
       },
     ],
   },
@@ -101,6 +107,10 @@ export const router = createBrowserRouter([
       {
         path:'/dashboardlayout/contactusers',
         element: <ContactUser></ContactUser>
+      },
+      {
+        path:'/dashboardlayout/addproduct',
+        element: <AddProduct></AddProduct>
       }
     ]
   },

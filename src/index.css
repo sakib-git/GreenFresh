@@ -36,7 +36,19 @@ body {
   }
 }
 
+.Strawberry{
+  animation: fol 3s ease-in-out infinite;
+}
 
+
+@keyframes fol{
+50%{
+  transform: translateY(10px);
+}
+100%{
+  transform: translateY(0px);
+}
+}
 
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {

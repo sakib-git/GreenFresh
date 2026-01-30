@@ -4,6 +4,7 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import { useQuery } from '@tanstack/react-query';
 import useAxiossecure from '../Hooks/useAxiossecure';
 import useAuth from '../Hooks/useAuth';
+import { Toaster } from 'kitzo';
 
 const DashboardLayout = () => {
   const [open, setOpen] = useState(false);
@@ -54,6 +55,7 @@ const DashboardLayout = () => {
               <Link to="/dashboardlayout/admindashobard">Dashboard</Link>
               <Link to="/dashboardlayout/manageusers">Manage Users</Link>
               <Link to="/dashboardlayout/contactusers">Contact Users</Link>
+              <Link to="/dashboardlayout/addproduct">Add products</Link>
             </>
           )}
           {dbUser?.role === 'user' && (
@@ -79,6 +81,7 @@ const DashboardLayout = () => {
           <Outlet />
         </main>
       </div>
+         <Toaster richColors='#00a63e' position='top-right'></Toaster>
     </div>
   );
 };

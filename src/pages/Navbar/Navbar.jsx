@@ -64,7 +64,9 @@ const Navbar = () => {
                     <div className=" absolute right-0 top-14 z-999 bg-white text-white p-3 rounded-md shadow-lg transition-all duration-300 flex flex-col  items-start">
                       <p className="text-[12px] mb-2 text-[#757d89]">{user?.displayName}</p>
                       <p className="text-[12px] mb-2 text-[#757d89]">{user?.email}</p>
-                      <Link to='/dashboardlayout/dashoboard' className="text-black">Dashboard</Link>
+                      <Link to="/dashboardlayout/dashoboard" className="text-black">
+                        Dashboard
+                      </Link>
                       <button onClick={hadleLogout} className="text-sm font-medium text-red-500 hover:underline">
                         Logout
                       </button>
@@ -119,7 +121,7 @@ const Navbar = () => {
               {/* Category Dropdown */}
               <div className="relative group">
                 <div className="flex items-center gap-1 cursor-pointer select-none">
-                  <NavLink to="/category" className="py-2 inline-block">
+                  <NavLink to="/categories" className="py-2 inline-block">
                     Category
                   </NavLink>
                   <span className="transition-all duration-300 group-hover:rotate-180">
@@ -131,20 +133,35 @@ const Navbar = () => {
                 <div
                   className="absolute left-0 top-full mt-1 min-w-[200px] bg-white shadow border border-gray-100
                      rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                     translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50 p-2"
+                     translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50 p-2  flex flex-col gap-4"
                 >
-                  <p className="px-4 py-2 hover:bg-gray-100 cursor-pointer">About</p>
-                  <p className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Services</p>
-                  <p className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Blog</p>
-                  <p className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Contact</p>
+                  <NavLink to="/categories?category=vegetables">
+                    <p className="font-semibold text-sm  ">Vegetables</p>
+                  </NavLink>
+
+                  <NavLink to="/categories?category=fresh-fruits">
+                    <p className="font-semibold text-sm ">Fresh Fruits</p>
+                  </NavLink>
+
+                  <NavLink to="/categories?category=desserts">
+                    <p className="font-semibold text-sm ">Desserts</p>
+                  </NavLink>
+                  <NavLink to="/categories?category=drinks-juice">
+                    <p className="font-semibold text-sm ">Drinks & Juice</p>
+                  </NavLink>
+                  <NavLink to="/categories?category=fish-meats">
+                    <p className="font-semibold text-sm ">Fish & Meats</p>
+                  </NavLink>
+                  <NavLink to="/categories?category=pets-animals">
+                    <p className="font-semibold text-sm ">Pets & Animals</p>
+                  </NavLink>
                 </div>
               </div>
 
-              <NavLink to="/allcategories">All Categories</NavLink>
               <NavLink to="/about">About</NavLink>
               <NavLink to="/service">Service</NavLink>
               <NavLink to="/contact">Contact</NavLink>
-              {user && <button onClick={hadleLogout}>logout</button>}
+              {user && <button className='text-left text-red-500' onClick={hadleLogout}>logout</button>}
             </div>
             <div className="flex-col  items-center ">
               <div className="flex gap-2 font-semibold text-[16px] floating">
