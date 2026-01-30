@@ -1,9 +1,8 @@
 import { createBrowserRouter } from 'react-router';
 import Home from '../pages/Home/Home';
-import RootLayout from '../Layout/rootLayout';
+import RootLayout from '../Layout/RootLayout';
 import AuthLayout from '../Layout/AuthLayout';
-import Login from '../pages/Auth/login';
-import Register from '../pages/Auth/register';
+import Register from '../pages/Auth/Register';
 import LoveSave from '../pages/LoveSave/LoveSave';
 import Addtocart from '../pages/AddtoCart/Addtocart';
 import AllCategories from '../pages/Allcategories/AllCategories';
@@ -22,6 +21,7 @@ import ContactUser from '../pages/Admin/ContactUser';
 import AddProduct from '../pages/Admin/AddProduct';
 import ViewDetails from '../Components/ViewDetails';
 import AuthProvider from '../context/AuthProvider';
+import Login from './../pages/Auth/Login';
 
 export const router = createBrowserRouter([
   {
