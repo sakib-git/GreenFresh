@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import Social from './Social';

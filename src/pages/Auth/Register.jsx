@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { Link, useNavigate } from 'react-router';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import Social from './Social';
 import uploadImageToImgbb from '../../helper/uploadImageToImgbb';
 import { updateProfile } from 'firebase/auth';
-import useAxiossecure from './../../Hooks/useAxiossecure';
+import useAxiossecure from '../../hooks/useAxiossecure';
 
 const Register = () => {
   const [showPassword, setShowpasswor] = useState(false);

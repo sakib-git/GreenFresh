@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Facebook, Linkedin, Github } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import useAxiossecure from '../../Hooks/useAxiossecure';
+import useAxiossecure from '../../hooks/useAxiossecure';
 import { toast } from 'kitzo';
 const Contact = () => {
   const axiosSecure = useAxiossecure()

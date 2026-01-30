@@ -1,8 +1,8 @@
 import React from 'react';
 import { LuRefreshCcw } from 'react-icons/lu';
 import { NavLink } from 'react-router';
-import useAxiossecure from './../Hooks/useAxiossecure';
-import useAuth from './../Hooks/useAuth';
+import useAxiossecure from '../hooks/useAxiossecure';
+import useAuth from '../hooks/useAuth';
 
 const ProductCard = ({ product }) => {
   const axiosSecure = useAxiossecure();

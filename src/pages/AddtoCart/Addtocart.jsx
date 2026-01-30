@@ -1,7 +1,7 @@
 import React from 'react';
-import useAxiossecure from '../../Hooks/useAxiossecure';
+import useAxiossecure from '../../hooks/useAxiossecure';
 import { useQuery } from '@tanstack/react-query';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
 const Addtocart = () => {

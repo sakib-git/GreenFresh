@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import uploadImageToImgbb from '../../helper/uploadImageToImgbb';
-import useAxiossecure from '../../Hooks/useAxiossecure';
+import useAxiossecure from '../../hooks/useAxiossecure';
 import { toast } from 'kitzo';
 
 const AddProduct = () => {

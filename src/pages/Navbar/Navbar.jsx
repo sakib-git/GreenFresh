@@ -6,11 +6,11 @@ import { Link, NavLink } from 'react-router';
 import { FiPhone } from 'react-icons/fi';
 import { HiOutlineUser } from 'react-icons/hi';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../fireBase/Firebase.init';
 import { useQuery } from '@tanstack/react-query';
-import useAxiossecure from '../../Hooks/useAxiossecure';
+import useAxiossecure from '../../hooks/useAxiossecure';
 
 const Navbar = () => {
   const axiosSecure = useAxiossecure()

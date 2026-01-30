@@ -1,18 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import useAxiossecure from '../Hooks/useAxiossecure';
 import { useParams } from 'react-router';
 import { FaCircleCheck } from 'react-icons/fa6';
 import { CiHeart } from 'react-icons/ci';
 import { LuRefreshCcw } from 'react-icons/lu';
-import useAuth from '../Hooks/useAuth';
+import useAuth from '../hooks/useAuth';
+import useAxiossecure from '../hooks/useAxiossecure';
 
 const ViewDetails = () => {
   const axiosSecure = useAxiossecure();
   const { user } = useAuth();
   const { id } = useParams();
 
-  const { data: products = [], isLoading , refetch} = useQuery({
+  const {
+    data: products = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ['products', id],
     queryFn: async () => {
       const res = await axiosSecure.get(`/product/getSingleProduct/${id}`);
@@ -32,7 +35,7 @@ const ViewDetails = () => {
     };
     try {
       const res = await axiosSecure.post('/addtocart/addToCartCollection', cart);
-     refetch()
+      refetch();
     } catch (error) {
       console.error('Add to cart failed:', error);
     }

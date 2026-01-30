@@ -1,6 +1,6 @@
 import { FaMoneyCheckDollar } from 'react-icons/fa6';
 import { IoFilter } from 'react-icons/io5';
-import useAxiossecure from '../../Hooks/useAxiossecure';
+import useAxiossecure from '../../hooks/useAxiossecure';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useSearchParams } from 'react-router';
 import { categories } from '../../data/categoryData';

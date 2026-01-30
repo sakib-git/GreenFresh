@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useQuery } from '@tanstack/react-query';
-import useAxiossecure from '../Hooks/useAxiossecure';
-import useAuth from '../Hooks/useAuth';
+import useAxiossecure from '../hooks/useAxiossecure';
+import useAuth from '../hooks/useAuth';
 import { Toaster } from 'kitzo';
 
 const DashboardLayout = () => {
@@ -60,12 +60,10 @@ const DashboardLayout = () => {
           )}
           {dbUser?.role === 'user' && (
             <>
-            <Link to="/dashboardlayout/dashoboard">Dashboard</Link>
-          <Link to="/dashboardlayout/order">Order</Link>
+              <Link to="/dashboardlayout/dashoboard">Dashboard</Link>
+              <Link to="/dashboardlayout/order">Order</Link>
             </>
           )}
-
-        
         </div>
       </aside>
 
@@ -81,7 +79,7 @@ const DashboardLayout = () => {
           <Outlet />
         </main>
       </div>
-         <Toaster richColors='#00a63e' position='top-right'></Toaster>
+      <Toaster richColors="#00a63e" position="top-right"></Toaster>
     </div>
   );
 };

@@ -1,7 +1,6 @@
-import React from 'react';
 import { Outlet } from 'react-router';
-import Navbar from '../pages/Navbar/Navbar';
-import Footer from '../pages/Footer/Footer';
+import Navbar from '../pages/navbar/Navbar';
+import Footer from '../pages/footer/Footer';
 import Navbar2 from '../Components/Navbar2';
 import { Toaster } from 'kitzo';
 
