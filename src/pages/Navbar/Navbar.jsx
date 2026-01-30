@@ -9,8 +9,11 @@ import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import useAuth from '../../Hooks/useAuth';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../fireBase/Firebase.init';
+import { useQuery } from '@tanstack/react-query';
+import useAxiossecure from '../../Hooks/useAxiossecure';
 
 const Navbar = () => {
+  const axiosSecure = useAxiossecure()
   const [open, setOpen] = useState(false);
   const [openmenu, setOpenMenu] = useState(false);
   const menuRef = useRef(null);
@@ -18,6 +21,14 @@ const Navbar = () => {
   const hadleLogout = () => {
     signOut(auth).then(() => {});
   };
+  const { data: carts = [] } = useQuery({
+    queryKey: ['cart', user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/addtocart/getCartByEmail?email=${user?.email}`);
+      return res.data;
+    },
+  });
+
 
   useEffect(() => {
     const handler = (e) => {
@@ -87,7 +98,7 @@ const Navbar = () => {
 
                 <NavLink to="/addtocart" className="relative p-2">
                   <BiCart size={28} />
-                  <span className="absolute top-0 right-0 bg-[#00A63E] text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
+                  <span className="absolute top-0 right-0 bg-[#00A63E] text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-white">{carts.length}</span>
                 </NavLink>
               </div>
             </div>

@@ -1,11 +1,30 @@
-
 import React from 'react';
 import { LuRefreshCcw } from 'react-icons/lu';
-import { NavLink, } from 'react-router';
+import { NavLink } from 'react-router';
+import useAxiossecure from './../Hooks/useAxiossecure';
+import useAuth from './../Hooks/useAuth';
 
 const ProductCard = ({ product }) => {
+  const axiosSecure = useAxiossecure();
+  const { user } = useAuth();
 
-  const { image, title, smallPrice, oldPrice, discount, rating, category , _id} = product;
+  const { image, title, smallPrice, oldPrice, discount, rating, category, _id } = product;
+  const handleCart = async (product) => {
+    const cart = {
+      title: product.title,
+      price: product.smallPrice,
+      image: product.image,
+      category: product.category,
+      userEmail: user?.email,
+      quantity: 1,
+    };
+    try {
+      const res = await axiosSecure.post('/addtocart/addToCartCollection', cart);
+      console.log('Added to cart:', res.data);
+    } catch (error) {
+      console.error('Add to cart failed:', error);
+    }
+  };
 
   return (
     <div className="max-w-75 bg-white rounded-3xl p-4 shadow-sm border border-gray-100 relative group">
@@ -54,7 +73,7 @@ const ProductCard = ({ product }) => {
           <span className="text-gray-300">★</span>
           <span className="text-gray-400 text-sm ml-1">({rating})</span>
         </div>
-        <hr className='my-4 text-[#eef0f3]' />
+        <hr className="my-4 text-[#eef0f3]" />
 
         {/* Price and Cart */}
         <div className="flex items-center justify-between">
@@ -63,8 +82,8 @@ const ProductCard = ({ product }) => {
             <span className="text-gray-400 line-through text-[clamp(0.5625rem,0.4583rem+0.4762vw,0.875rem)]">${oldPrice}</span>
           </div>
 
-          <button className="bg-[#e8faee] text-[#00c662] p-3 rounded-2xl hover:bg-[#00c662] hover:text-white transition-all duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" className='max-md:h-4' width="20"  height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <button onClick={() => handleCart(product)} className="bg-[#e8faee] text-[#00c662] p-3 rounded-2xl hover:bg-[#00c662] hover:text-white transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" className="max-md:h-4" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="8" cy="21" r="1" />
               <circle cx="19" cy="21" r="1" />
               <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
