@@ -8,7 +8,7 @@ import { HiOutlineUser } from 'react-icons/hi';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import useAuth from '../../hooks/useAuth';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../fireBase/Firebase.init';
+import { auth } from '../../fireBase/firebase-config';
 import { useQuery } from '@tanstack/react-query';
 import useAxiossecure from '../../hooks/useAxiossecure';
 
