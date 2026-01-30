@@ -1,12 +1,11 @@
-
 import useAuth from '../Hooks/useAuth';
 import { Navigate } from 'react-router';
 
-const AuthPrivate = ({children}) => {
-  const {user} = useAuth()
+const AuthPrivate = ({ children }) => {
+  const { user } = useAuth();
 
-  if(user) return <Navigate to="/" replace />
-  return children
+  if (user) return <Navigate to="/" replace />;
+  return children;
 };
 
 export default AuthPrivate;
