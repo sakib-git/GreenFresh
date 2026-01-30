@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { BiCart } from 'react-icons/bi';
 import { CiHeart } from 'react-icons/ci';
 import { IoSearch } from 'react-icons/io5';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
 import { FiPhone } from 'react-icons/fi';
 import { HiOutlineUser } from 'react-icons/hi';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';

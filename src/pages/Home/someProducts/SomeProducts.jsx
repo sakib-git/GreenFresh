@@ -1,7 +1,7 @@
 import useAxiossecure from '../../../hooks/useAxiossecure';
 import { useQuery } from '@tanstack/react-query';
 import ProductCard from '../../../components/ProductCard';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const SomeProducts = () => {
   const axiosSecure = useAxiossecure();

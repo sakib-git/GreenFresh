@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useQuery } from '@tanstack/react-query';
 import useAxiossecure from '../hooks/useAxiossecure';

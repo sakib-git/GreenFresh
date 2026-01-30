@@ -1,5 +1,5 @@
 import { LuRefreshCcw } from 'react-icons/lu';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import useAxiossecure from '../hooks/useAxiossecure';
 import useAuth from '../hooks/useAuth';
 

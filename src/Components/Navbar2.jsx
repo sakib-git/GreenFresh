@@ -1,6 +1,6 @@
 import { FiPhone } from 'react-icons/fi';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { categories } from '../data/categoryData';
 
 const Navbar2 = () => {
