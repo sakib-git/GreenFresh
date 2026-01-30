@@ -1,7 +1,6 @@
-import React from 'react';
 import useAxiossecure from '../../../hooks/useAxiossecure';
 import { useQuery } from '@tanstack/react-query';
-import ProductCard from '../../../Components/ProductCard';
+import ProductCard from '../../../components/ProductCard';
 import { NavLink } from 'react-router';
 
 const SomeProducts = () => {
@@ -13,21 +12,21 @@ const SomeProducts = () => {
       return res.data;
     },
   });
-  console.log(product)
+  console.log(product);
   return (
     <div className="mx-3">
-      <div className="max-w-350 mx-auto py-10">
-        <p className="text-green-600 py-2">Our Collection</p>
+      <div className="mx-auto max-w-350 py-10">
+        <p className="py-2 text-green-600">Our Collection</p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
           {product.slice(0, 8).map((product) => (
             <ProductCard key={product._id} product={product}></ProductCard>
           ))}
         </div>
       </div>
-    <div className="text-center bg-[#432dd7] font-bold text-[18px] py-3 w-fit px-5 text-white rounded-full mx-auto mb-5 hover:bg-[#372aac]">
-        <NavLink to='/categories' >See All Products</NavLink>
-    </div>
+      <div className="mx-auto mb-5 w-fit rounded-full bg-[#432dd7] px-5 py-3 text-center text-[18px] font-bold text-white hover:bg-[#372aac]">
+        <NavLink to="/categories">See All Products</NavLink>
+      </div>
     </div>
   );
 };

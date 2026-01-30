@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const uploadImageToImgbb = async (imageFile) => {
   const formData = new FormData();
-  formData.append("image", imageFile);
+  formData.append('image', imageFile);
 
   const apiKey = import.meta.env.VITE_IMG_HOST_IMGBB;
 

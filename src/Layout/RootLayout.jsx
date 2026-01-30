@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router';
 import Navbar from '../pages/navbar/Navbar';
 import Footer from '../pages/footer/Footer';
-import Navbar2 from '../Components/Navbar2';
+import Navbar2 from '../components/Navbar2';
 import { Toaster } from 'kitzo';
 
 const RootLayout = () => {

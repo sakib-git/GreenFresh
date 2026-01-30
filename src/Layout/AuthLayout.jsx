@@ -1,10 +1,12 @@
-import React from 'react';
 import { Link, Outlet } from 'react-router';
 
 const AuthLayout = () => {
   return (
-    <div className="bg-gray-100 overflow-auto min-h-screen">
-      <Link to="/" className="text-4xl font-bold  max-md:text-3xl text-[#372aac] mt-10 ml-10 block ">
+    <div className="min-h-screen overflow-auto bg-gray-100">
+      <Link
+        to="/"
+        className="mt-10 ml-10 block text-4xl font-bold text-[#372aac] max-md:text-3xl"
+      >
         GreenFresh
       </Link>
       <Outlet></Outlet>

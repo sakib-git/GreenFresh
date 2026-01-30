@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink, Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useQuery } from '@tanstack/react-query';
 import useAxiossecure from '../hooks/useAxiossecure';
@@ -24,27 +24,27 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100">
       {/* Mobile overlay */}
-      {open && <div onClick={() => setOpen(false)} className="fixed inset-0 bg-black/40 z-30 lg:hidden"></div>}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 z-30 bg-black/40 lg:hidden"
+        ></div>
+      )}
 
       <aside
-        className={`
-          fixed lg:static z-40
-          w-64 bg-gray-800 text-white p-5
-          h-full lg:h-auto
-          transform transition-transform duration-300
-          ${open ? 'translate-x-0' : '-translate-x-full'}
-          lg:translate-x-0
-        `}
+        className={`fixed z-40 h-full w-64 transform bg-gray-800 p-5 text-white transition-transform duration-300 lg:static lg:h-auto ${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="mb-6 flex items-center justify-between">
           <Link to="/">
-            <div className="flex items-center gap-2   rounded-full px-4 py-2 w-fit  ">
-              <span className="font-semibold  text-lg max-sm:text-sm">GreenFresh</span>
+            <div className="flex w-fit items-center gap-2 rounded-full px-4 py-2">
+              <span className="text-lg font-semibold max-sm:text-sm">
+                GreenFresh
+              </span>
             </div>
           </Link>
-          <button className="lg:hidden text-2xl" onClick={() => setOpen(false)}>
+          <button className="text-2xl lg:hidden" onClick={() => setOpen(false)}>
             <FiX />
           </button>
         </div>
@@ -67,8 +67,8 @@ const DashboardLayout = () => {
         </div>
       </aside>
 
-      <div className="flex-1 flex flex-col">
-        <header className="lg:hidden  shadow px-4 py-3 flex items-center">
+      <div className="flex flex-1 flex-col">
+        <header className="flex items-center px-4 py-3 shadow lg:hidden">
           <button className="text-2xl" onClick={() => setOpen(true)}>
             <FiMenu />
           </button>

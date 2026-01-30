@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BiCart } from 'react-icons/bi';
-import { CiHeart, CiUser } from 'react-icons/ci';
+import { CiHeart } from 'react-icons/ci';
 import { IoSearch } from 'react-icons/io5';
 import { Link, NavLink } from 'react-router';
 import { FiPhone } from 'react-icons/fi';
@@ -13,7 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiossecure from '../../hooks/useAxiossecure';
 
 const Navbar = () => {
-  const axiosSecure = useAxiossecure()
+  const axiosSecure = useAxiossecure();
   const [open, setOpen] = useState(false);
   const [openmenu, setOpenMenu] = useState(false);
   const menuRef = useRef(null);
@@ -24,11 +24,12 @@ const Navbar = () => {
   const { data: carts = [] } = useQuery({
     queryKey: ['cart', user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/addtocart/getCartByEmail?email=${user?.email}`);
+      const res = await axiosSecure.get(
+        `/addtocart/getCartByEmail?email=${user?.email}`,
+      );
       return res.data;
     },
   });
-
 
   useEffect(() => {
     const handler = (e) => {
@@ -45,47 +46,78 @@ const Navbar = () => {
   }, []);
   return (
     <div>
-      <div className="bg-white shadow py-5">
-        <div className="mx-3 ">
-          <div className="flex justify-between items-center max-w-[1400px] mx-auto  ">
-            <NavLink to="/" className="text-4xl font-bold max-md:text-3xl text-[#372aac]">
+      <div className="bg-white py-5 shadow">
+        <div className="mx-3">
+          <div className="mx-auto flex max-w-[1400px] items-center justify-between">
+            <NavLink
+              to="/"
+              className="text-4xl font-bold text-[#372aac] max-md:text-3xl"
+            >
               GreenFresh
             </NavLink>
 
             {/* Desktop Menu */}
 
-            <div className="flex items-center gap-4 w-full font-semibold max-lg:hidden">
-              <form className="relative max-w-[550px] w-full mx-auto flex-1">
-                <input type="text" className="w-full border border-[#c9c9c9] rounded-full px-4 py-2.5 pr-10 focus:outline-none focus:border-[#ffb900] focus:ring-1 focus:ring-[#ffb900] transition" placeholder="Search for products.." />
-                <button type="submit" className="absolute right-0 rounded-r-full top-1/2 -translate-y-1/2 text-gray-500 bg-amber-300 px-5 py-3">
+            <div className="flex w-full items-center gap-4 font-semibold max-lg:hidden">
+              <form className="relative mx-auto w-full max-w-[550px] flex-1">
+                <input
+                  type="text"
+                  className="w-full rounded-full border border-[#c9c9c9] px-4 py-2.5 pr-10 transition focus:border-[#ffb900] focus:ring-1 focus:ring-[#ffb900] focus:outline-none"
+                  placeholder="Search for products.."
+                />
+                <button
+                  type="submit"
+                  className="absolute top-1/2 right-0 -translate-y-1/2 rounded-r-full bg-amber-300 px-5 py-3 text-gray-500"
+                >
                   <IoSearch size={20} />
                 </button>
               </form>
             </div>
 
             {/* Desktop Login */}
-            <div ref={menuRef} className="text-2xl flex items-center gap-4 font-medium relative ">
+            <div
+              ref={menuRef}
+              className="relative flex items-center gap-4 text-2xl font-medium"
+            >
               {user ? (
                 <div className="flex flex-col items-center gap-3">
-                  <div className=" h-8 w-8 rounded-full">
-                    <img onClick={() => setOpenMenu(!openmenu)} src={user?.photoURL} alt="User" className="rounded-full" />
+                  <div className="h-8 w-8 rounded-full">
+                    <img
+                      onClick={() => setOpenMenu(!openmenu)}
+                      src={user?.photoURL}
+                      alt="User"
+                      className="rounded-full"
+                    />
                   </div>
 
                   {openmenu && (
-                    <div className=" absolute right-0 top-14 z-999 bg-white text-white p-3 rounded-md shadow-lg transition-all duration-300 flex flex-col  items-start">
-                      <p className="text-[12px] mb-2 text-[#757d89]">{user?.displayName}</p>
-                      <p className="text-[12px] mb-2 text-[#757d89]">{user?.email}</p>
-                      <Link to="/dashboardlayout/dashoboard" className="text-black">
+                    <div className="absolute top-14 right-0 z-999 flex flex-col items-start rounded-md bg-white p-3 text-white shadow-lg transition-all duration-300">
+                      <p className="mb-2 text-[12px] text-[#757d89]">
+                        {user?.displayName}
+                      </p>
+                      <p className="mb-2 text-[12px] text-[#757d89]">
+                        {user?.email}
+                      </p>
+                      <Link
+                        to="/dashboardlayout/dashoboard"
+                        className="text-black"
+                      >
                         Dashboard
                       </Link>
-                      <button onClick={hadleLogout} className="text-sm font-medium text-red-500 hover:underline">
+                      <button
+                        onClick={hadleLogout}
+                        className="text-sm font-medium text-red-500 hover:underline"
+                      >
                         Logout
                       </button>
                     </div>
                   )}
                 </div>
               ) : (
-                <NavLink to="/login" className="bg-gray-100 p-2 rounded-full hover:bg-[#00a63e] hover:text-white transition">
+                <NavLink
+                  to="/login"
+                  className="rounded-full bg-gray-100 p-2 transition hover:bg-[#00a63e] hover:text-white"
+                >
                   <HiOutlineUser size={22} />
                 </NavLink>
               )}
@@ -93,18 +125,25 @@ const Navbar = () => {
               <div className="flex items-center gap-4">
                 <NavLink to="/lovesave" className="relative p-2">
                   <CiHeart size={28} />
-                  <span className="absolute top-0 right-0 bg-[#FF6B6B] text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
+                  <span className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-[#FF6B6B] text-[10px] font-bold text-white">
+                    0
+                  </span>
                 </NavLink>
 
                 <NavLink to="/addtocart" className="relative p-2">
                   <BiCart size={28} />
-                  <span className="absolute top-0 right-0 bg-[#00A63E] text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-white">{carts.length}</span>
+                  <span className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-[#00A63E] text-[10px] font-bold text-white">
+                    {carts.length}
+                  </span>
                 </NavLink>
               </div>
             </div>
 
             {/* Mobile Menu Button */}
-            <button onClick={() => setOpen(true)} className="lg:hidden text-2xl cursor-pointer">
+            <button
+              onClick={() => setOpen(true)}
+              className="cursor-pointer text-2xl lg:hidden"
+            >
               ☰
             </button>
           </div>
@@ -112,27 +151,36 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Overlay */}
-      {open && <div onClick={() => setOpen(false)} className="fixed inset-0 bg-black/40 z-20 lg:hidden" />}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 z-20 bg-black/40 lg:hidden"
+        />
+      )}
 
       {/* Mobile Sidebar */}
-      <div className={`fixed top-0 left-0 h-full w-66 bg-white shadow-lg p-5 z-30 transform transition-transform duration-300 lg:hidden ${open ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="flex justify-between items-center">
-          <span className="text-2xl font-bold  max-md:text-3xl text-[#372aac]  ">GreenFresh</span>
+      <div
+        className={`fixed top-0 left-0 z-30 h-full w-66 transform bg-white p-5 shadow-lg transition-transform duration-300 lg:hidden ${open ? 'translate-x-0' : '-translate-x-full'}`}
+      >
+        <div className="flex items-center justify-between">
+          <span className="text-2xl font-bold text-[#372aac] max-md:text-3xl">
+            GreenFresh
+          </span>
           <button className="text-2xl font-bold" onClick={() => setOpen(false)}>
             ✕
           </button>
         </div>
 
-        <div className="flex flex-col gap-4 text-lg font-medium mt-6">
+        <div className="mt-6 flex flex-col gap-4 text-lg font-medium">
           <div className="flex flex-col gap-30">
             <div className="flex flex-col gap-3">
               <NavLink to="/">Home</NavLink>
               <NavLink to="/categories">All Categories</NavLink>
 
               {/* Category Dropdown */}
-              <div className="relative group">
-                <div className="flex items-center gap-1 cursor-pointer select-none">
-                  <NavLink to="/categories" className="py-2 inline-block">
+              <div className="group relative">
+                <div className="flex cursor-pointer items-center gap-1 select-none">
+                  <NavLink to="/categories" className="inline-block py-2">
                     Category
                   </NavLink>
                   <span className="transition-all duration-300 group-hover:rotate-180">
@@ -141,30 +189,26 @@ const Navbar = () => {
                 </div>
 
                 {/* Dropdown Menu */}
-                <div
-                  className="absolute left-0 top-full mt-1 min-w-[200px] bg-white shadow border border-gray-100
-                     rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                     translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50 p-2  flex flex-col gap-4"
-                >
+                <div className="invisible absolute top-full left-0 z-50 mt-1 flex min-w-[200px] translate-y-4 flex-col gap-4 rounded-b-lg border border-gray-100 bg-white p-2 opacity-0 shadow transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <NavLink to="/categories?category=vegetables">
-                    <p className="font-semibold text-sm  ">Vegetables</p>
+                    <p className="text-sm font-semibold">Vegetables</p>
                   </NavLink>
 
                   <NavLink to="/categories?category=fresh-fruits">
-                    <p className="font-semibold text-sm ">Fresh Fruits</p>
+                    <p className="text-sm font-semibold">Fresh Fruits</p>
                   </NavLink>
 
                   <NavLink to="/categories?category=desserts">
-                    <p className="font-semibold text-sm ">Desserts</p>
+                    <p className="text-sm font-semibold">Desserts</p>
                   </NavLink>
                   <NavLink to="/categories?category=drinks-juice">
-                    <p className="font-semibold text-sm ">Drinks & Juice</p>
+                    <p className="text-sm font-semibold">Drinks & Juice</p>
                   </NavLink>
                   <NavLink to="/categories?category=fish-meats">
-                    <p className="font-semibold text-sm ">Fish & Meats</p>
+                    <p className="text-sm font-semibold">Fish & Meats</p>
                   </NavLink>
                   <NavLink to="/categories?category=pets-animals">
-                    <p className="font-semibold text-sm ">Pets & Animals</p>
+                    <p className="text-sm font-semibold">Pets & Animals</p>
                   </NavLink>
                 </div>
               </div>
@@ -172,14 +216,21 @@ const Navbar = () => {
               <NavLink to="/about">About</NavLink>
               <NavLink to="/service">Service</NavLink>
               <NavLink to="/contact">Contact</NavLink>
-              {user && <button className='text-left text-red-500' onClick={hadleLogout}>logout</button>}
+              {user && (
+                <button
+                  className="text-left text-red-500"
+                  onClick={hadleLogout}
+                >
+                  logout
+                </button>
+              )}
             </div>
-            <div className="flex-col  items-center ">
-              <div className="flex gap-2 font-semibold text-[16px] floating">
+            <div className="flex-col items-center">
+              <div className="floating flex gap-2 text-[16px] font-semibold">
                 <span className="text-[#00a63e]">%</span>
                 <h3>Weekly Discount!</h3>
               </div>
-              <div className="bg-[#4f39f6] flex gap-3 items-center px-5 py-1 text-white rounded-md relative">
+              <div className="relative flex items-center gap-3 rounded-md bg-[#4f39f6] px-5 py-1 text-white">
                 <span>
                   <FiPhone size={20} />
                 </span>
@@ -187,7 +238,7 @@ const Navbar = () => {
                   <p className="text-[10px] uppercase">hotline</p>
                   <p className="font-semibold">+8801721189065</p>
                 </div>
-                <span className="absolute -top-2 left-2 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-[#4f39f6]"></span>
+                <span className="absolute -top-2 left-2 border-r-8 border-b-8 border-l-8 border-r-transparent border-b-[#4f39f6] border-l-transparent"></span>
               </div>
             </div>
           </div>
