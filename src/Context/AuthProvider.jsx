@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { auth } from './../fireBase/Firebase.init';
+import { auth } from '../fireBase/Firebase.init';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 
 // eslint-disable-next-line react-refresh/only-export-components

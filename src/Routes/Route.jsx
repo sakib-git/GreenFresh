@@ -20,8 +20,8 @@ import Error from '../Components/Error';
 import ContactUser from '../pages/Admin/ContactUser';
 import AddProduct from '../pages/Admin/AddProduct';
 import ViewDetails from '../Components/ViewDetails';
-import AuthProvider from '../context/AuthProvider';
 import Login from './../pages/Auth/Login';
+import AuthProvider from '../context/AuthProvider';
 
 export const router = createBrowserRouter([
   {
